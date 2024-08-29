@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_job_title
+    description: "Dimension table for job posting titles, providing unique job title IDs and names."
+    columns:
+      - name: job_title_id
+        description: "Surrogate key for the job title."
+        tests:
+          - unique
+          - not_null
+      - name: job_title_name
+        description: "Name of the job title."
+        tests:
+          - unique
+          - not_null

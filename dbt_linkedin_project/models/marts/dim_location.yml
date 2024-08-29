@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_location
+    description: "Dimension table for locations, providing unique location IDs and details."
+    columns:
+      - name: location_id
+        description: "Surrogate key for the location."
+        tests:
+          - unique
+          - not_null
+      - name: search_city
+        description: "City where the job is located."
+        tests:
+          - not_null
+      - name: job_location
+        description: "Job location."
+        tests:
+          - not_null
+      - name: search_country
+        description: "Country where the job is located."
+        tests:
+          - not_null
+      - name: search_position
+        description: "Position or state where the job is located."
+        tests:
+          - not_null

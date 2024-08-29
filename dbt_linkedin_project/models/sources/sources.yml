@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: linkedin_job_posting
+    database: big-star-collectibles-433202
+    schema: raw_data
+    tables:
+      - name: raw_linkedin_job_posting
+        description: "Raw data from the LinkedIn job postings dataset extracted from Airbyte"

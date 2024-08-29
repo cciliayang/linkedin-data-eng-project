@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_job_level
+    description: "Dimension table for job levels, providing unique job level IDs and names."
+    columns:
+      - name: job_level_id
+        description: "Surrogate key for the job level."
+        tests:
+          - unique
+          - not_null
+      - name: job_position_level
+        description: "Name of the job position level."
+        tests:
+          - unique
+          - not_null

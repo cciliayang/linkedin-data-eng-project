@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: clean_data
+    description: "A cleaned view of the LinkedIn job postings data, extracted and transformed for further analysis."
+    config:
+      materialized: view
+    columns:
+      - name: raw_id
+        description: "The raw ID from the Airbyte extraction."
+      - name: extracted_at
+        description: "The timestamp when the data was extracted by Airbyte."
+      - name: meta
+        description: "Metadata field from Airbyte containing additional information about the extraction."
+      - name: generation_id
+        description: "The generation ID from Airbyte, cast to an INT64."
+      - name: company_name
+        description: "The name of the company associated with the job posting."
+      - name: got_ner
+        description: "Indicates if Named Entity Recognition (NER) was applied to the job data."
+      - name: job_link
+        description: "The URL link to the job posting."
+      - name: job_type
+        description: "The type of job (e.g., Onsite, Hybrid, Remote)."
+      - name: job_level
+        description: "The level of the job (e.g., Entry, Mid, Senior)."
+      - name: job_title
+        description: "The title of the job posting."
+      - name: first_seen
+        description: "The timestamp when the job posting was first seen."
+      - name: got_summary
+        description: "Summary information about the job posting, if available."
+      - name: search_city
+        description: "The city where the job search was conducted."
+      - name: job_location
+        description: "The location of the job as listed in the posting."
+      - name: country
+        description: "The country where the job search was conducted."
+      - name: is_being_worked
+        description: "Indicates if the job is currently being worked on."
+      - name: position
+        description: "The position or role searched for in the job search."
+      - name: last_processed_time
+        description: "The timestamp when the job posting was last processed."
+

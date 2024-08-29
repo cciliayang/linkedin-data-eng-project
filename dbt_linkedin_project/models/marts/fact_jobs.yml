@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: fact_jobs
+    description: "Fact table for job postings, containing metrics and linking to dimension tables."
+    columns:
+      - name: job_id
+        description: "Surrogate key for the job posting."
+        tests:
+          - unique
+          - not_null
+      - name: company_id
+        description: "Foreign key referencing the company dimension."
+        tests:
+          - not_null
+      - name: job_title_id
+        description: "Foreign key referencing the job title dimension."
+        tests:
+          - not_null
+      - name: job_type_id
+        description: "Foreign key referencing the job working environment dimension."
+        tests:
+          - not_null
+      - name: job_level_id
+        description: "Foreign key referencing the job position level dimension."
+        tests:
+          - not_null
+      - name: location_id
+        description: "Foreign key referencing the location dimension."
+        tests:
+          - not_null
+      - name: job_posting_count
+        description: "Count of job postings for the given dimensions."
+        tests:
+          - not_null

@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_job_type
+    description: "Dimension table for job environment types, providing unique job type IDs and names."
+    columns:
+      - name: job_type_id
+        description: "Surrogate key for the job type."
+        tests:
+          - unique
+          - not_null
+      - name: job_type_environment
+        description: "Type of the job environment for eg. Remote, Hybrid, OnSite."
+        tests:
+          - unique
+          - not_null
