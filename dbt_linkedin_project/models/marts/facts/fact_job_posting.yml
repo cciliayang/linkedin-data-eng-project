@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fact_jobs
+  - name: fact_job_posting
     description: "Fact table for job postings, containing metrics and linking to dimension tables."
     columns:
       - name: job_id

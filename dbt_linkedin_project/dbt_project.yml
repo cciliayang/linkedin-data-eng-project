@@ -34,9 +34,11 @@ models:
       +materialized: view
     intermediate:
       +materialized: table
-    marts:
+    facts:
       +materialized: table
     dimensions:
       +materialized: table
     job_market:
       +materialized: view
+    marts:
+      +materialized: table

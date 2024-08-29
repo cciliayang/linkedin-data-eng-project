@@ -13,4 +13,5 @@ sources:
     tables:
       - name: int_job_posting
         description: "Summary of job postings by location"
-
+     # - name: stg_linkedin_jobs_postings
+      #  description: "Staging table for LinkedIn jobs postings data"

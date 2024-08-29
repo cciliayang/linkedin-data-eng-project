@@ -1,6 +1,6 @@
 -- Dimensional model for job position type
 
-WITH job_level_clean AS (
+WITH job_position_level_clean AS (
     SELECT
         job_level
     FROM
@@ -14,6 +14,6 @@ SELECT
     ROW_NUMBER() OVER (ORDER BY job_level) AS job_level_id,
     job_level AS job_position_level
 FROM
-    job_level_clean
+    job_position_level_clean
 GROUP BY
     job_level

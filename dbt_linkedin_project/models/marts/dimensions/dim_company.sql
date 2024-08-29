@@ -1,6 +1,6 @@
 -- Dimensional model for company's job posting.
 
-WITH company_clean AS (
+WITH company_clean_data AS (
     SELECT
         company
     FROM
@@ -16,6 +16,6 @@ SELECT
     ROW_NUMBER() OVER (ORDER BY company) AS company_id,
     company AS company_name
 FROM
-    company_clean
+    company_clean_data
 GROUP BY
     company

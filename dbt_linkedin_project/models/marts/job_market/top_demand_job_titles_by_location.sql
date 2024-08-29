@@ -1,4 +1,4 @@
--- Model for the most in demande job titles
+-- Model for the most in demande job titles in specified location for example ''
 
 WITH job_counts AS (
     SELECT
@@ -18,6 +18,7 @@ SELECT
 FROM
     job_counts
 WHERE
-    location = 'Chicago, IL'  -- Replace with the location of interest
+-- Replace with the location of interest
+    location = 'Philadelphia, PA'
 ORDER BY
     number_of_postings DESC

@@ -5,7 +5,7 @@ SELECT
     location,
     number_of_postings
 --FROM
-    --{{ ref('int_job_posting') }}
+    --{{ ref('int_job_posting')}}
  FROM
         {{ source('transformed_job_posting_data', 'int_job_posting') }}
 ORDER BY

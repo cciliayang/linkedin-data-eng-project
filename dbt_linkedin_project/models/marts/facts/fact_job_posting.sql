@@ -14,15 +14,7 @@ WITH job_data AS (
         COUNT(*) AS job_posting_count
     FROM
         {{ ref('stg_linkedin_jobs_postings') }}
-    WHERE
-        company IS NOT NULL
-        AND job_title IS NOT NULL
-        AND job_type IS NOT NULL
-        AND job_level IS NOT NULL
-        AND search_city IS NOT NULL
-        AND job_location IS NOT NULL
-        AND search_country IS NOT NULL
-        AND search_position IS NOT NULL
+
     GROUP BY
         company,
         job_title,
@@ -33,7 +25,6 @@ WITH job_data AS (
         search_country,
         search_position
 )
-
 SELECT
     ROW_NUMBER() OVER (ORDER BY jd.company_name, jd.job_title_name, jd.job_type_environment, jd.job_position_level, jd.search_city, jd.job_location, jd.search_country, jd.search_position) AS job_id,
     c.company_id,
