@@ -1,24 +1,36 @@
--- Model for the most in demande job titles in specified location for example ''
+-- Model for identifying the top in-demand job titles by location
 
-WITH job_counts AS (
+WITH job_postings_ranked AS (
     SELECT
-        job_title,
-        location,
-        COUNT(*) AS number_of_postings
+        l.job_location AS location,
+        jt.job_title_name AS job_title,
+        COUNT(*) AS number_of_postings,
+        ROW_NUMBER() OVER (
+            PARTITION BY l.job_location
+            ORDER BY COUNT(*) DESC
+        ) AS job_title_rank
     FROM
-        {{ source('transformed_job_posting_data', 'int_job_posting') }}
+        {{ ref('fact_job_posting') }} f
+    INNER JOIN
+        {{ ref('dim_location') }} l ON f.location_id = l.location_id
+    INNER JOIN
+        {{ ref('dim_job_title') }} jt ON f.job_title_id = jt.job_title_id
+	WHERE
+	-- filter by location
+		l.job_location = 'Philadelphia, PA'
     GROUP BY
-        job_title,
-        location
+        l.job_location,
+        jt.job_title_name
 )
+
 SELECT
     job_title,
     location,
     number_of_postings
 FROM
-    job_counts
+    job_postings_ranked
 WHERE
--- Replace with the location of interest
-    location = 'Philadelphia, PA'
+    job_title_rank = 1
+
 ORDER BY
     number_of_postings DESC
