@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: job_market_analysis
+    description: |
+      This model aggregates job postings by title and location, providing insights
+      into the most in-demand job titles in specific locations. The model counts
+      the number of job postings for each job title and location combination.
+    columns:
+      - name: job_title
+        description: "Job posting title."
+      - name: location
+        description: "The location where the job is posted."
+      - name: number_of_postings
+        description: "The number of job postings for the given job title and location."
+    tests:
+      - unique:
+          column_name: job_title
+      - not_null:
+          column_name: location

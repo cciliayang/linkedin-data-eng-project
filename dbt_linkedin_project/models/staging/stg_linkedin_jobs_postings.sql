@@ -1,5 +1,5 @@
 -- Model clean and prepare raw data from 'raw_linkedin_job_posting'
-with clean_data AS (
+with clean_job_postings_data AS (
 	SELECT
 		_airbyte_raw_id as raw_id,
 		_airbyte_extracted_at as extracted_at,
@@ -18,8 +18,8 @@ with clean_data AS (
 		search_country,
 		is_being_worked,
 		search_position,
-		 TIMESTAMP(last_processed_time) AS last_processed_time
+		TIMESTAMP(last_processed_time) AS last_processed_time
   FROM {{ source('linkedin_job_posting', 'raw_linkedin_job_posting') }}
 )
 
-SELECT * FROM clean_data
+SELECT * FROM clean_job_postings_data

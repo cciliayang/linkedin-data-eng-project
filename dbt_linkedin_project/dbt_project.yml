@@ -32,5 +32,11 @@ models:
   dbt_linkedin_project:
     staging:
       +materialized: view
+    intermediate:
+      +materialized: table
     marts:
       +materialized: table
+    dimensions:
+      +materialized: table
+    job_market:
+      +materialized: view

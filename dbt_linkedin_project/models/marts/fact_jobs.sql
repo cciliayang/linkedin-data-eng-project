@@ -1,4 +1,5 @@
 -- fact jobs table
+-- Query to create a detailed dataset of job postings by combining raw job postings data with related dimensions tables (company, location, job type etc.)
 
 WITH job_data AS (
     SELECT

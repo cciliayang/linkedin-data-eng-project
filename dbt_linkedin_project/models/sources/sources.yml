@@ -7,3 +7,10 @@ sources:
     tables:
       - name: raw_linkedin_job_posting
         description: "Raw data from the LinkedIn job postings dataset extracted from Airbyte"
+  - name: transformed_job_posting_data
+    database: big-star-collectibles-433202
+    schema: transformed_data
+    tables:
+      - name: int_job_posting
+        description: "Summary of job postings by location"
+
