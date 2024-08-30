@@ -1,5 +1,3 @@
-version: 2
-
 models:
   - name: fact_job_posting
     description: "Fact table for job postings, containing metrics and linking to dimension tables."
@@ -13,23 +11,44 @@ models:
         description: "Foreign key referencing the company dimension."
         tests:
           - not_null
+          - custom:
+              name: no_null_company_id
+              path: models/tests/no_null_company_id.sql
+          - relationships:
+              to: ref('dim_company')
+              field: company_id
       - name: job_title_id
         description: "Foreign key referencing the job title dimension."
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_job_title')
+              field: job_title_id
       - name: job_type_id
         description: "Foreign key referencing the job working environment dimension."
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_job_type')
+              field: job_type_id
       - name: job_level_id
         description: "Foreign key referencing the job position level dimension."
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_job_level')
+              field: job_level_id
       - name: location_id
         description: "Foreign key referencing the location dimension."
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_location')
+              field: location_id
       - name: job_posting_count
         description: "Count of job postings for the given dimensions."
         tests:
           - not_null
+          - accepted_range:
+              min_value: 1
+              max_value: 1000000

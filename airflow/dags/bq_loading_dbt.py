@@ -31,15 +31,17 @@ create_dataset = BigQueryCreateEmptyDatasetOperator(
 # Task 2 - Copy dbt project files from the dbt-linkedin-project bucket to the local file system
 copy_dbt_project = BashOperator(
     task_id='copy_dbt_project',
-    bash_command='gsutil -m cp -r gs://dbt-linkedin-project /home/airflow/dbt_project',
+    #bash_command='gsutil -m cp -r gs://dbt-linkedin-project /home/airflow/dbt_project',
+	bash_command='gsutil -m cp -r gs://dbt-linkedin-project /home/airflow/gcs/data/dbt_project',
     dag=dag,
 )
 
 # Task 3 - Run dbt models using the copied dbt project files
 run_dbt_models = BashOperator(
     task_id='run_dbt_models',
-    bash_command='dbt run --profiles-dir /home/airflow/dbt_project --project-dir /home/airflow/dbt_project --target prod',
-    env={
+    #bash_command='dbt run --profiles-dir /home/airflow/dbt_project --project-dir /home/airflow/dbt_project --target prod',
+    bash_command='dbt run --profiles-dir /home/airflow/gcs/data/dbt_project --project-dir /home/airflow/gcs/data/dbt_project --target prod',
+	env={
         'DBT_BIGQUERY_DATASET': 'transformed_linkedin_postings_data',
     },
     dag=dag,
