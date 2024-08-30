@@ -11,7 +11,7 @@ http://localhost:8000
 - Star Diagram
 
 <img src="readme_images/job-starmodel.png" alt="Star Diagram" width="700"/>
-
+<img src="readme_images/powerbi-model-view.png" alt="Star Diagram" width="700"/>
 
 - Linkedin Job Postings Lineage
 <img src="readme_images/linkedin_job_posting_lineage.png" alt="Lieneage" width="800"/>
