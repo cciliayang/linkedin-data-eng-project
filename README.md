@@ -16,9 +16,13 @@ http://localhost:8000
 - Linkedin Job Postings Lineage
 <img src="readme_images/linkedin_job_posting_lineage.png" alt="Lieneage" width="800"/>
 
+- Example of a query to calculates the number of job postings per company, grouped by job title and job type made via Big Query
+<img src="readme_images/example_query.png" alt="Dashboard" width="700"/>
+<img src="readme_images/query_result.png" alt="Dashboard" width="700"/>
 
 - Power BI - Dashboard
 <img src="readme_images/linkedin_dashboard_2.png" alt="Dashboard" width="800"/>
+
 
 
 
