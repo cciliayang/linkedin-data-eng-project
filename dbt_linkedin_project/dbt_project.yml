@@ -32,8 +32,6 @@ models:
   dbt_linkedin_project:
     staging:
       +materialized: view
-    intermediate:
-      +materialized: table
     facts:
       +materialized: table
     dimensions:
